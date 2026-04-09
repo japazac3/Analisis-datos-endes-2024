@@ -5,7 +5,6 @@
 
 import { Upload } from 'lucide-react';
 import React, { useCallback } from 'react';
-import { Button } from './ui/button';
 
 interface FileUploadProps {
   onDataLoaded: (data: any[]) => void;
@@ -39,6 +38,7 @@ export function FileUpload({ onDataLoaded, isLoading, setIsLoading }: FileUpload
       <p className="text-sm text-zinc-500 mb-6 text-center max-w-xs">
         Sube tu archivo Excel (.xls, .xlsx, .xlsm) o CSV con las columnas correspondientes.
       </p>
+
       <div className="relative">
         <input
           type="file"
@@ -47,9 +47,14 @@ export function FileUpload({ onDataLoaded, isLoading, setIsLoading }: FileUpload
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
           disabled={isLoading}
         />
-        <Button variant="default" disabled={isLoading} className="px-8">
+
+        {/* BOTÓN REEMPLAZADO */}
+        <button
+          disabled={isLoading}
+          className="px-8 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 transition"
+        >
           {isLoading ? 'Procesando...' : 'Seleccionar Archivo'}
-        </Button>
+        </button>
       </div>
     </div>
   );
